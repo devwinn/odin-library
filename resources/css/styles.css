@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding:0;
+}
+
+label {
+    font-size: 25px;
+}
+
+input {
+    height: 25px;
+}
+
+#form-buttons {
+    display: flex;
+    gap: 20px;
+    white-space: nowrap;
+}
+
+#create {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+    white-space: nowrap;
+}
+
+#form-submit {
+    font-size: 20px;
+    margin-top: 20px;
+    padding: 2.5px;
+}
+
+#library-heading {
+    align-content: center;
+    background-color: aliceblue;
+    font-size: 50px;
+    height: 200px;
+    text-align: center;
+    width: 100%;
+}
+
+#submit-div {
+    display: flex;
+    justify-content: center;
+}
+
+.book-card {
+    background-color: aliceblue;
+    height: 400px;
+    width: 300px;
+
+}

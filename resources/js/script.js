@@ -42,7 +42,7 @@ function displayBooks(library) {
         `;
         let insertCard = document.createElement("div");
 
-        insertCard.classList.add(`book-card-${i}`);
+        insertCard.classList.add(`index-${i}`, 'book-card');
         insertCard.innerHTML = cardHtml;
         libraryCards.append(insertCard);
         i++;
