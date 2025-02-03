@@ -33,10 +33,10 @@ function displayBooks(library) {
 
     library.forEach(element => {
         let cardHtml = `
-            <h2 class="book-title">${element.title}</h2>
-            <h3 class="book-author">${element.author}</h3>
-            <p class="book-pages">${element.pages} pages</p>
-            <p class="book-read">${element.read}</p>
+            <h2 class="book-title">"${element.title}"</h2>
+            <h2 class="book-author">by ${element.author}</h2>
+            <p class="book-pages">${element.pages} Pages</p>
+            <p class="book-read">Read? ${element.read}</p>
             <button class="book-reset book-index-${i}">Remove</button>
 
         `;
