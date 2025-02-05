@@ -1,8 +1,9 @@
 
 const library = [];
-const bookCreator = document.getElementById('book-creator');
+const bookCreator = document.getElementById('create');
 const bookSubmit = document.getElementById('form-submit')
 const libraryCards = document.getElementById('library-cards');
+const submitContainers = document.getElementsByClassName('submit-div')
 const noRead = document.getElementById('read');
 const yesRead = document.getElementById('not-read');
 
@@ -35,8 +36,8 @@ function displayBooks(library) {
         let cardHtml = `
             <h2 class="book-title">"${element.title}"</h2>
             <h2 class="book-author">by ${element.author}</h2>
-            <p class="book-pages">${element.pages} Pages</p>
-            <p class="book-read">Read? ${element.read}</p>
+            <p class="book-pages">${element.pages} <b>Pages</b></p>
+            <p class="book-read"><b>Read?</b> ${element.read}</p>
             <button class="book-reset book-index-${i}">Remove</button>
 
         `;
@@ -66,6 +67,12 @@ function displayBooks(library) {
       });
 }
 
+function hideForm() {
+    bookCreator.style.display = 'none';
+    submitContainers[0].style.display = 'none';
+    submitContainers[1].style.display = 'flex';
+}
+
 function removeBook(bookIndex) {
 
     library.splice(bookIndex, 1);
@@ -81,6 +88,14 @@ function resetForm() {
     yesRead.checked = false;
 }
 
+function showForm() {
+    
+    bookCreator.style.display = 'flex';
+    submitContainers[0].style.display = 'flex';
+    submitContainers[1].style.display = 'none';
+
+}
+
 function submitBook() {
     
     let newAuthor = document.getElementById('author').value;
@@ -92,6 +107,7 @@ function submitBook() {
         let newBook = new createBook(newAuthor, newPages, newRead, newTitle);
         addToLibrary(newBook);
         resetForm();
+        hideForm();
         displayBooks(library);
     } else {
         console.log('Unsuccessful Submission')
