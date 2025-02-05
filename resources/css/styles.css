@@ -34,7 +34,7 @@ label {
 }
 
 #create {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
@@ -42,7 +42,7 @@ label {
     white-space: nowrap;
 }
 
-#form-submit {
+#form-submit, #show-form {
     font-size: 20px;
     margin-top: 20px;
     padding: 10px;
@@ -69,8 +69,8 @@ label {
     width: 100%;
 }
 
-#submit-div {
-    display: flex;
+.submit-div {
+    display: none;
     justify-content: center;
     margin-bottom: 20px;
 }
@@ -97,6 +97,7 @@ label {
 
 .book-pages {
     font-size: 20px;
+    margin-bottom: 20px;
     margin-top: 40px;
 }
 
