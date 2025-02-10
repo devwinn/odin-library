@@ -21,23 +21,33 @@ function createBook(author, pages, read, title) {
     this.read = read;
     this.title = title;
 
+    this.changeRead = function () {
+        if (this.read == 'Yes') {
+            this.read = 'No';
+        } else {
+            this.read = 'Yes';
+        }
+    };
     this.info = function () {
         return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
     };
 }
 
-function displayBooks(library) {
+function displayBooks(array) {
 
     libraryCards.innerHTML = "";
 
     let i = 0;
 
-    library.forEach(element => {
+    array.forEach(element => {
         let cardHtml = `
             <h2 class="book-title">"${element.title}"</h2>
             <h2 class="book-author">by ${element.author}</h2>
             <p class="book-pages">${element.pages} <b>Pages</b></p>
-            <p class="book-read"><b>Read?</b> ${element.read}</p>
+            <div>
+                <p class="book-read"><b>Read?</b> ${element.read}</p>
+                <button class="book-read-reset book-index-${i}">Change</button>
+            </div>
             <button class="book-reset book-index-${i}">Remove</button>
 
         `;
@@ -49,6 +59,18 @@ function displayBooks(library) {
         i++;
     }
     );
+
+    const changeButtons = document.querySelectorAll('.book-read-reset');
+
+    changeButtons.forEach(button => {
+
+        button.addEventListener( 'click', function(event) {
+            let bookClass = button.classList[1];
+            let index = bookClass.charAt(bookClass.length-1);
+            library[index].changeRead();
+            displayBooks(library);
+        })
+    });
 
     const resetButtons = document.querySelectorAll('.book-reset');
    
